@@ -73,31 +73,11 @@ namespace EatOut
             return RefreshTime.AddMinutes(ri) < DateTime.UtcNow;
         }
 
-        static Regex csvSplit = new Regex("(?:^|,)(\"(?:[^\"]+|\"\")*\"|[^,]*)", RegexOptions.Compiled);
-
-        public static string[] SplitCSV(string input)
-        {
-            List<string> list = new List<string>();
-            string curr = null;
-            foreach (Match match in csvSplit.Matches(input))
-            {
-                curr = match.Value;
-                if (0 == curr.Length)
-                {
-                    list.Add("");
-                }
-
-                list.Add(curr.TrimStart(','));
-            }
-
-            return list.ToArray();
-        }
-
         private Vendor GetVendorsFromLine(string line)
         {
             Vendor v = new Vendor();
 
-            string[] fields = SplitCSV(line); //.Split(",");
+            string[] fields = CsvHelper.SplitCSV(line); 
 
             int i = 0;
 

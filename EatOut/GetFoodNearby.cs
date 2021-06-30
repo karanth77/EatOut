@@ -31,7 +31,7 @@ namespace EatOut
         /// <returns></returns>
         [FunctionName("GetFoodNearby")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "GetFoodNearby")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "GetFoodNearby")] HttpRequest req,
             CancellationToken cancellationToken = default)
         {
             return await ProcessPost(

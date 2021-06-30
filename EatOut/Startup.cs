@@ -28,7 +28,7 @@ namespace EatOut
 
             builder.Services.AddSingleton<IAuthorizationServiceFactory, AuthorizationServiceFactory>();
             
-            // We can add additional services like HealthCheck, other Repository etc
+            // We can add additional services like HealthCheck, other Repository etc here
         }
     }
 }

@@ -41,6 +41,7 @@ namespace EatOut
 
         // Another option is to read all vendors and store it in no sql so that way we can enable offline access.
         // We can then read it from no sql and serve it from redis cache.
+        // There could be another job that refreshes the no sql.
         public async Task<List<Vendor>> GetAllVendors()
         {
             if(this.vendors.Count() > 0 && !ShouldRefresh())
@@ -49,7 +50,9 @@ namespace EatOut
             }
 
             var url = configService.ReadSetting("FoodTruckUrl", "https://data.sfgov.org/api/views/rqzj-sfat/rows.csv");
+
             string result = await _httpClient.GetStringAsync(url);
+
             string[] lines = result.Split(
                                 new[] { "\r\n", "\r", "\n" },
                                 StringSplitOptions.None);

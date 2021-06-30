@@ -78,7 +78,7 @@ namespace EatOut
             int totalResults = 0;
             foreach(var pair in vendorsByDistance)
             {
-                if(totalResults > request.ResultSize)
+                if(totalResults >= request.ResultSize)
                 {
                     break;
                 }

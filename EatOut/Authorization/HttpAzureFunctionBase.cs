@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace EatOut.Authorization
 {
-    // Base class that every azure http function derives from to get commen authentication and authorization methods
+    // Base class that every azure http function derives from to get common authentication and authorization methods
     public abstract class HttpAzureFunctionBase
     {
         protected readonly ILogger Logger;

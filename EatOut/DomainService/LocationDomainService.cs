@@ -12,21 +12,11 @@ namespace EatOut
 {
     public class LocationDomainService : ILocationDomainService
     {
-        private readonly HttpClient _httpClient;
-
-        private IConfigurationService configService;
-
         private IVendorRepository vendorRepository;
 
-        public LocationDomainService(HttpClient httpClient, IConfigurationService configService, IVendorRepository vendorRepository)
+        public LocationDomainService(IVendorRepository vendorRepository)
         {
-            _httpClient = httpClient;
-
-            Validate.IsNotNull(configService, nameof(configService));
-
             Validate.IsNotNull(vendorRepository, nameof(vendorRepository));
-
-            this.configService = configService;
 
             this.vendorRepository = vendorRepository;
         }

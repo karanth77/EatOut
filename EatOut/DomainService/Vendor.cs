@@ -4,8 +4,6 @@ namespace EatOut
 {
     public class Vendor
     {
-
-        public int Lot { get; internal set; }
         public int LocationId { get; internal set; }
         public string Applicant { get; internal set; }
         public string FacilityType { get; internal set; }
@@ -28,5 +26,6 @@ namespace EatOut
         public string Received { get; internal set; }
         public string PriorPermit { get; internal set; }
         public DateTime ExiprationDate { get; internal set; }
+        public int Lot { get; internal set; }
     }
 }
